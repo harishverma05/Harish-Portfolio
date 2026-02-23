@@ -282,10 +282,20 @@ h2 {
     text-decoration: none;
 }
 
-/* MOBILE */
 @media (max-width: 768px) {
+
     nav {
-        padding: 0 20px;
+        padding: 12px 20px;
+        flex-direction: column;   /* ⭐ stack logo + menu */
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    nav ul {
+        width: 100%;
+        justify-content: space-between;
+        gap: 16px;
+        flex-wrap: wrap;
     }
 
     section {
