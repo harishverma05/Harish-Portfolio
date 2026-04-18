@@ -12,18 +12,6 @@ html {
 body {
     background-color: #F7F3EB;
 }
-/* chatbot(position + visibility)*/
-sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
-}
 
 /* NAVBAR */
 nav {
@@ -216,16 +204,8 @@ h2 {
 }
 
 
-/* CONTACT */
 
-.contact-box {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    width: fit-content;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-}
-/*  PROJECT */
+/* PROJECT SECTION FIX */
 #projects {
     display: flex;
     flex-direction: column;
@@ -405,7 +385,18 @@ h2 {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
-/*Chatbot toogle*/
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
 .chat-toggle {
     position: fixed;
     right: 24px;
@@ -557,18 +548,18 @@ h2 {
 
 /* MOBILE */
 @media (max-width: 768px) {
-nav {
-padding: 0 20px;
-}
+    nav {
+        padding: 0 20px;
+    }
 
-section {  
-    padding: 60px 20px;  
-    text-align: center;  
-}  
+    section {
+        padding: 60px 20px;
+        text-align: center;
+    }
 
-.firstSection {  
-    flex-direction: column;  
-}
+    .firstSection {
+        flex-direction: column;
+    }
 
     .chat-toggle {
         right: 16px;
