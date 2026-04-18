@@ -248,12 +248,150 @@
         </div>
     </section>
 
+        <!-- chat bot-->
+
+    <button class="chat-toggle" type="button" aria-label="Open portfolio chatbot" aria-expanded="false">
+        <i class="fa-solid fa-comments"></i>
+        Ask Harish Bot
+    </button>
+
+    <section class="chatbot-panel" aria-label="Portfolio chatbot" hidden>
+        <div class="chatbot-header">
+            <div>
+                <h3>Harish Bot</h3>
+                <p>Ask about skills, projects, education, or contact info.</p>
+            </div>
+            <button class="chat-close" type="button" aria-label="Close chatbot">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+
+        <div class="chatbot-messages" aria-live="polite">
+            <div class="message bot-message">
+                Hi! I can tell you about Harish's skills, projects, education, and how to contact him.
+            </div>
+        </div>
+
+        <div class="chatbot-suggestions">
+            <button type="button" class="suggestion-chip">Tell me about your skills</button>
+            <button type="button" class="suggestion-chip">Show your projects</button>
+            <button type="button" class="suggestion-chip">How can I contact you?</button>
+        </div>
+
+        <form class="chatbot-form">
+            <label class="sr-only" for="chat-input">Type your question</label>
+            <input id="chat-input" type="text" placeholder="Type a message..." autocomplete="off">
+            <button type="submit">Send</button>
+        </form>
+    </section>
+
     <!-- Typed JS -->
     <script src="https://unpkg.com/typed.js@3.0.0/dist/typed.umd.js"></script>
     <script>
         new Typed('#element', {
             strings: ['Welcome to my portfolio'],
             typeSpeed: 50,
+        });
+
+        // chatbot - Frontend JavaScript
+        const chatToggle = document.querySelector('.chat-toggle');
+        const chatPanel = document.querySelector('.chatbot-panel');
+        const chatClose = document.querySelector('.chat-close');
+        const chatForm = document.querySelector('.chatbot-form');
+        const chatInput = document.querySelector('#chat-input');
+        const chatMessages = document.querySelector('.chatbot-messages');
+        const suggestionChips = document.querySelectorAll('.suggestion-chip');
+
+        const botReplies = [
+            {
+                keywords: ['skill', 'skills', 'tech stack', 'technology', 'technologies'],
+                reply: "Harish works with Python, C, HTML, DSA, OOP, Pandas, NumPy, Matplotlib, Git, GitHub, and Jupyter."
+            },
+            {
+                keywords: ['project', 'projects', 'work', 'portfolio'],
+                reply: "Two featured projects are Healthcare Anywhere, a rural healthcare access app, and this personal portfolio website with coding activity highlights."
+            },
+            {
+                keywords: ['education', 'college', 'study', 'studying', 'university'],
+                reply: "Harish is pursuing a B.Tech in Computer Science-AI at BBD University and is currently in the 4th semester."
+            },
+            {
+                keywords: ['contact', 'email', 'linkedin', 'github', 'reach'],
+                reply: "You can reach Harish at mluckyverma9936@gmail.com, or connect through LinkedIn, GitHub, Instagram, and the email icon in the contact section."
+            },
+            {
+                keywords: ['about', 'yourself', 'who are you', 'who is harish'],
+                reply: "Harish is a Computer Science student and aspiring data scientist focused on problem-solving, Python, and building practical data-driven projects."
+            },
+            {
+                keywords: ['hello', 'hi', 'hey'],
+                reply: "Hello! Ask me about Harish's skills, education, projects, or contact details."
+            }
+        ];
+
+        function addMessage(text, type) {
+            const message = document.createElement('div');
+            message.className = `message ${type}-message`;
+            message.textContent = text;
+            chatMessages.appendChild(message);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function getBotReply(input) {
+            const normalizedInput = input.toLowerCase().trim();
+
+            const match = botReplies.find((item) =>
+                item.keywords.some((keyword) => normalizedInput.includes(keyword))
+            );
+
+            if (match) {
+                return match.reply;
+            }
+
+            return "I can help with skills, projects, education, and contact information. Try asking: 'What are your skills?'";
+        }
+
+        function toggleChat(showPanel) {
+            chatPanel.hidden = !showPanel;
+            chatToggle.setAttribute('aria-expanded', String(showPanel));
+
+            if (showPanel) {
+                chatInput.focus();
+            }
+        }
+
+        function handleUserMessage(text) {
+            const trimmedText = text.trim();
+
+            if (!trimmedText) {
+                return;
+            }
+
+            addMessage(trimmedText, 'user');
+
+            window.setTimeout(() => {
+                addMessage(getBotReply(trimmedText), 'bot');
+            }, 450);
+        }
+
+        chatToggle.addEventListener('click', () => {
+            toggleChat(chatPanel.hidden);
+        });
+
+        chatClose.addEventListener('click', () => {
+            toggleChat(false);
+        });
+
+        chatForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            handleUserMessage(chatInput.value);
+            chatInput.value = '';
+        });
+
+        suggestionChips.forEach((chip) => {
+            chip.addEventListener('click', () => {
+                handleUserMessage(chip.textContent);
+            });
         });
     </script>
 
