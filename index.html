@@ -4,13 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Harish - Portfolio</title>
+    <title>Harish Verma — Portfolio</title>
+    <meta name="description" content="Harish Verma's developer portfolio — Computer Science student and aspiring data scientist.">
 
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Local Font Awesome -->
+    <link rel="stylesheet" href="vendor/fontawesome/css/all.min.css">
 
     <!-- External CSS -->
     <link rel="stylesheet" href="index.css">
@@ -31,19 +32,33 @@
         </ul>
     </nav>
 
-    <!-- HERO -->
+    <!-- HERO with Tubes Background -->
     <section id="home" class="firstSection">
-        <div class="leftSection">
-            <span id="element"></span><br>
-            I'm <span class="gold">Harish Verma</span>
-            <div class="text_grey">
-                Computer Science Student & Aspiring Data Scientist
+        <!-- 3D Tubes canvas (hero-only) -->
+        <canvas id="tubes-canvas"></canvas>
+        <!-- Neon cursor dot -->
+        <div id="cursor"></div>
+
+        <!-- Hero content sits on top of canvas -->
+        <div class="hero-content">
+            <div class="leftSection">
+                <span id="element"></span><br>
+                I'm <span class="gold">Harish Verma</span>
+                <div class="text_grey">
+                    Computer Science Student &amp; Aspiring Data Scientist
+                </div>
+                <div class="hero-cta">
+                    <a href="#projects" class="btn-primary">View Projects</a>
+                    <a href="#contact" class="btn-ghost">Contact Me</a>
+                </div>
+            </div>
+
+            <div class="rightSection">
+                <img src="image.png" alt="Harish Verma">
             </div>
         </div>
 
-        <div class="rightSection">
-            <img src="image.png" alt="Data Analyst">
-        </div>
+        <p class="hero-hint"><i class="fa-solid fa-wand-magic-sparkles"></i> Click to randomize colors</p>
     </section>
 
     <!-- ABOUT -->
@@ -71,29 +86,30 @@
         <div class="skills-grid">
 
             <!-- Languages -->
-            <div class="skill-group">
+              <div class="skill-group">
                 <h3><i class="fa-solid fa-code"></i> Languages</h3>
                 <p>
                     <i class="fa-brands fa-python"></i> Python,
                     <i class="fa-solid fa-c"></i> C Language
+                    <i class="fa-brands fa-html5"></i> HTML
                 </p>
             </div>
 
             <!-- Core -->
             <div class="skill-group">
-                <h3><i class="fa-solid fa-brain"></i> Core</h3>
+                <h3><i class="fa-solid fa-microchip"></i> Core</h3>
                 <p>
-                    <i class="fa-solid fa-diagram-project"></i> DSA,
+                    <i class="fa-solid fa-sitemap"></i> DSA &nbsp;
                     <i class="fa-solid fa-cubes"></i> OOP
                 </p>
             </div>
 
             <!-- Libraries -->
             <div class="skill-group">
-                <h3><i class="fa-solid fa-chart-column"></i> Libraries</h3>
+                <h3><i class="fa-solid fa-layer-group"></i> Libraries</h3>
                 <p>
-                    <i class="fa-solid fa-table"></i> Pandas,
-                    <i class="fa-solid fa-square-root-variable"></i> NumPy,
+                    <i class="fa-solid fa-table"></i> Pandas &nbsp;
+                    <i class="fa-solid fa-infinity"></i> NumPy &nbsp;
                     <i class="fa-solid fa-chart-line"></i> Matplotlib
                 </p>
             </div>
@@ -102,8 +118,8 @@
             <div class="skill-group">
                 <h3><i class="fa-solid fa-screwdriver-wrench"></i> Tools</h3>
                 <p>
-                    <i class="fa-brands fa-git-alt"></i> Git,
-                    <i class="fa-brands fa-github"></i> GitHub,
+                    <i class="fa-brands fa-git-alt"></i> Git &nbsp;
+                    <i class="fa-brands fa-github"></i> GitHub &nbsp;
                     <i class="fa-solid fa-book-open"></i> Jupyter
                 </p>
             </div>
@@ -132,8 +148,6 @@
         </div>
     </section>
 
-
-
  <!-- PROJECTS -->
 <section id="projects">
     <h2>Projects</h2>
@@ -155,11 +169,11 @@
         </ul>
 
            <div class="project-links">
-    <a href="https://github.com/harishverma05/Healthcare-Anywhere.git" target="_blank">
+    <a href="https://github.com/harishverma05/Harish-Portfolio.git" target="_blank">
         <i class="fa-solid fa-arrow-up-right-from-square"></i> View Code
     </a>
 
-    <a href="https://harishverma05.github.io/Healthcare-Anywhere/" target="_blank">
+    <a href="https://harishverma05.github.io/Harish-Portfolio/" target="_blank">
         <i class="fa-solid fa-arrow-up-right-from-square"></i> View Demo
     </a>
 </div>
@@ -181,17 +195,18 @@
         </ul>
 
         <div class="project-links">
-    <a href="https://github.com/harishverma05/Harish-Portfolio.git" target="_blank">
+    <a href="https://github.com/harishverma05/Healthcare-Anywhere.git" target="_blank">
         <i class="fa-solid fa-arrow-up-right-from-square"></i> View Code
     </a>
 
-    <a href="https://harishverma05.github.io/Harish-Portfolio/" target="_blank">
+    <a href="https://harishverma05.github.io/Healthcare-Anywhere/" target="_blank">
         <i class="fa-solid fa-arrow-up-right-from-square"></i> View Demo
     </a>
 </div>
     </div>
 
 </section>
+    </section>
 
     <!-- CODING ACTIVITY -->
     <section id="coding">
@@ -240,15 +255,15 @@
             <p>Email: mluckyverma9936@gmail.com</p>
 
             <div class="social-icons">
-                <a href="https://www.instagram.com/harish_verma__7/"><i class="fa-brands fa-instagram"></i></a>
-                <a href="https://www.linkedin.com/in/harishverma-ai/"><i class="fa-brands fa-linkedin"></i></a>
-                <a href="https://github.com/harishverma05"><i class="fa-brands fa-github"></i></a>
-                <a href="mailto:mluckyverma9936@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+                <a href="https://www.instagram.com/harish_verma__7/" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/harishverma-ai/" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://github.com/harishverma05" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                <a href="mailto:mluckyverma9936@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
             </div>
         </div>
     </section>
 
-        <!-- chat bot-->
+    <!-- chat bot-->
 
     <button class="chat-toggle" type="button" aria-label="Open portfolio chatbot" aria-expanded="false">
         <i class="fa-solid fa-comments"></i>
@@ -286,14 +301,62 @@
     </section>
 
     <!-- Typed JS -->
+    <script src="vendor/fontawesome/fa-inline-fallback.js"></script>
     <script src="https://unpkg.com/typed.js@3.0.0/dist/typed.umd.js"></script>
+
+    <!-- Tubes 3D background (hero section only) -->
+    <script type="module">
+        const canvas = document.getElementById('tubes-canvas');
+        const cursorDot = document.getElementById('cursor');
+        let tubesApp = null;
+
+        // Track mouse for custom cursor
+        window.addEventListener('mousemove', e => {
+            cursorDot.style.left = e.clientX + 'px';
+            cursorDot.style.top  = e.clientY + 'px';
+        });
+
+        const PALETTES = [
+            { tubes: ['#f967fb','#53bc28','#6958d5'], lights: ['#83f36e','#fe8a2e','#ff008a','#60aed5'] },
+            { tubes: ['#00f5ff','#ff6b6b','#ffd93d'], lights: ['#4ecdc4','#ff6b6b','#a8e6cf','#dda0dd'] },
+            { tubes: ['#ff0080','#7928ca','#00dfd8'], lights: ['#7928ca','#ff0080','#00dfd8','#fff200'] },
+            { tubes: ['#f7971e','#ffd200','#21d4fd'], lights: ['#b721ff','#21d4fd','#f7971e','#ffd200'] },
+            { tubes: ['#dbb25c','#6958d5','#f967fb'], lights: ['#dbb25c','#f967fb','#53bc28','#60aed5'] },
+        ];
+        let paletteIdx = 0;
+
+        try {
+            const mod = await import('https://cdn.jsdelivr.net/npm/threejs-components@0.0.19/build/cursors/tubes1.min.js');
+            tubesApp = mod.default(canvas, {
+                tubes: {
+                    colors: PALETTES[0].tubes,
+                    lights: { intensity: 200, colors: PALETTES[0].lights }
+                }
+            });
+        } catch(e) {
+            console.warn('Tubes CDN load failed — using CSS fallback', e);
+            canvas.style.display = 'none';
+        }
+
+        // Click on hero → cycle palette
+        document.getElementById('home').addEventListener('click', (e) => {
+            if (e.target.closest('a') || e.target.closest('button')) return;
+            paletteIdx = (paletteIdx + 1) % PALETTES.length;
+            const p = PALETTES[paletteIdx];
+            if (tubesApp) {
+                tubesApp.tubes?.setColors?.(p.tubes);
+                tubesApp.tubes?.setLightsColors?.(p.lights);
+            }
+            cursorDot.style.background = p.tubes[0];
+            cursorDot.style.boxShadow  = `0 0 16px 5px ${p.tubes[0]}`;
+        });
+    </script>
     <script>
         new Typed('#element', {
             strings: ['Welcome to my portfolio'],
             typeSpeed: 50,
         });
-
-        // chatbot - Frontend JavaScript
+// chatbot - Frontend JavaScript
         const chatToggle = document.querySelector('.chat-toggle');
         const chatPanel = document.querySelector('.chatbot-panel');
         const chatClose = document.querySelector('.chat-close');
