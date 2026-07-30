@@ -32,12 +32,8 @@
         </ul>
     </nav>
 
-    <!-- HERO with Tubes Background -->
+    <!-- HERO -->
     <section id="home" class="firstSection">
-        <!-- 3D Tubes canvas (hero-only) -->
-        <canvas id="tubes-canvas"></canvas>
-        <!-- Neon cursor dot -->
-        <div id="cursor"></div>
 
         <!-- Hero content sits on top of canvas -->
         <div class="hero-content">
@@ -109,7 +105,8 @@
                 <p>
                     <i class="fa-solid fa-table"></i> Pandas &nbsp;
                     <i class="fa-solid fa-infinity"></i> NumPy &nbsp;
-                    <i class="fa-solid fa-chart-line"></i> Matplotlib
+                    <i class="fa-solid fa-chart-line"></i> Matplotlib &nbsp;
+                    <i class="fa-solid fa-chart-line"></i> Seaborn &nbsp;
                 </p>
             </div>
 
@@ -329,53 +326,7 @@
     <script src="vendor/fontawesome/fa-inline-fallback.js"></script>
     <script src="https://unpkg.com/typed.js@3.0.0/dist/typed.umd.js"></script>
 
-    <!-- Tubes 3D background (hero section only) -->
-    <script type="module">
-        const canvas = document.getElementById('tubes-canvas');
-        const cursorDot = document.getElementById('cursor');
-        let tubesApp = null;
 
-        // Track mouse for custom cursor
-        window.addEventListener('mousemove', e => {
-            cursorDot.style.left = e.clientX + 'px';
-            cursorDot.style.top  = e.clientY + 'px';
-        });
-
-        const PALETTES = [
-            { tubes: ['#f967fb','#53bc28','#6958d5'], lights: ['#83f36e','#fe8a2e','#ff008a','#60aed5'] },
-            { tubes: ['#00f5ff','#ff6b6b','#ffd93d'], lights: ['#4ecdc4','#ff6b6b','#a8e6cf','#dda0dd'] },
-            { tubes: ['#ff0080','#7928ca','#00dfd8'], lights: ['#7928ca','#ff0080','#00dfd8','#fff200'] },
-            { tubes: ['#f7971e','#ffd200','#21d4fd'], lights: ['#b721ff','#21d4fd','#f7971e','#ffd200'] },
-            { tubes: ['#dbb25c','#6958d5','#f967fb'], lights: ['#dbb25c','#f967fb','#53bc28','#60aed5'] },
-        ];
-        let paletteIdx = 0;
-
-        try {
-            const mod = await import('https://cdn.jsdelivr.net/npm/threejs-components@0.0.19/build/cursors/tubes1.min.js');
-            tubesApp = mod.default(canvas, {
-                tubes: {
-                    colors: PALETTES[0].tubes,
-                    lights: { intensity: 200, colors: PALETTES[0].lights }
-                }
-            });
-        } catch(e) {
-            console.warn('Tubes CDN load failed — using CSS fallback', e);
-            canvas.style.display = 'none';
-        }
-
-        // Click on hero → cycle palette
-        document.getElementById('home').addEventListener('click', (e) => {
-            if (e.target.closest('a') || e.target.closest('button')) return;
-            paletteIdx = (paletteIdx + 1) % PALETTES.length;
-            const p = PALETTES[paletteIdx];
-            if (tubesApp) {
-                tubesApp.tubes?.setColors?.(p.tubes);
-                tubesApp.tubes?.setLightsColors?.(p.lights);
-            }
-            cursorDot.style.background = p.tubes[0];
-            cursorDot.style.boxShadow  = `0 0 16px 5px ${p.tubes[0]}`;
-        });
-    </script>
     <script>
         new Typed('#element', {
             strings: ['Welcome to my portfolio'],
